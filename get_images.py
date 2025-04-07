@@ -22,5 +22,7 @@ def traverse():
     for image_format in image_formats:
         for f in Path(src).glob(image_format):
             file_group.append(f.absolute())
-
-    return file_group, str(out_dir)
+    if src:
+        return file_group, str(out_dir), str(Path(src))
+    else:
+        return None, None, None
