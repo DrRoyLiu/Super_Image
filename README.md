@@ -97,8 +97,10 @@ AI recognition is based on YOLOv12.
 
 ## 源代码打包命令 Source Code Packaging Command
 
-pyinstaller -D -w -i icon.ico --add-data "README.md;." main.py -n SUPER_IMAGE
+### pygame
 
-or
+pyinstaller -D -w -i icon.ico --add-data "yolov12m.pt;." --add-data "README.md;." main.py -n SUPER_IMAGE
 
-pyinstaller -D -w -i icon.ico --add-data "README.md;." main2.py -n SUPER_IMAGE
+### tkinter
+
+pyinstaller -D -w -i icon.ico --add-data "yolov12m.pt;." --add-data "README.md;." main2.py -n SUPER_IMAGE
