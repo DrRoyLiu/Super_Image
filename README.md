@@ -1,162 +1,104 @@
+# 超级图像 Super Image
 
+** 注意：程序为单线程，每次操作未完成时，界面会卡住没有响应，此时不需要点击，只需等待 **  
+** Note: The program is single-threaded. When an operation is not completed, the interface will freeze and become unresponsive. Do not click; just wait. **
 
-<div align="center">
-<h1>YOLOv12</h1>
-<h3>YOLOv12: Attention-Centric Real-Time Object Detectors</h3>
+** 注意：有时候需要点2下才能点击成功 **  
+** Note: Sometimes you need to click twice for the action to succeed. **
 
-[Yunjie Tian](https://sunsmarterjie.github.io/)<sup>1</sup>, [Qixiang Ye](https://people.ucas.ac.cn/~qxye?language=en)<sup>2</sup>, [David Doermann](https://cse.buffalo.edu/~doermann/)<sup>1</sup>
+## 使用步骤 Steps to Use
 
-<sup>1</sup>  University at Buffalo, SUNY, <sup>2</sup> University of Chinese Academy of Sciences.
+### 获取微信文章 Fetching WeChat Articles
 
+将微信的PPT图片合订成为PDF文件。  
+Combine WeChat PPT images into a PDF file.
 
-<p align="center">
-  <img src="assets/tradeoff_turbo.svg" width=90%> <br>
-  Comparison with popular methods in terms of latency-accuracy (left) and FLOPs-accuracy (right) trade-offs
-</p>
+- 选择“获取微信文章”  
+- Select "Fetch WeChat Articles"
 
-</div>
+- 输入微信文章URL  
+- Enter the WeChat article URL
 
-[![arXiv](https://img.shields.io/badge/arXiv-2502.12524-b31b1b.svg)](https://arxiv.org/abs/2502.12524) [![Hugging Face Demo](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/sunsmarterjieleaf/yolov12) <a href="https://colab.research.google.com/github/roboflow-ai/notebooks/blob/main/notebooks/train-yolov12-object-detection-model.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> [![Kaggle Notebook](https://img.shields.io/badge/Kaggle-Notebook-blue?logo=kaggle)](https://www.kaggle.com/code/jxxn03x/yolov12-on-custom-data) [![deploy](https://media.roboflow.com/deploy.svg)](https://blog.roboflow.com/use-yolov12-with-roboflow/#deploy-yolov12-models-with-roboflow) [![Openbayes](https://img.shields.io/static/v1?label=Demo&message=OpenBayes%E8%B4%9D%E5%BC%8F%E8%AE%A1%E7%AE%97&color=green)](https://openbayes.com/console/public/tutorials/A4ac4xNrUCQ) 
+- 等待下载自动化工具（可能需要一段时间）  
+- Wait for the download automation tool (this may take some time)
 
-## Updates
+- 自动化工具下载完成后，会自动打开微信网页，自动将滚动条拉到最下方，然后逐步下载图片、合成PDF  
+- Once the automation tool finishes downloading, it will automatically open the WeChat webpage, scroll to the bottom, and gradually download images and combine them into a PDF.
 
-- 2025/03/18: Some guys are interested in the heatmap. See this [issue](https://github.com/sunsmarterjie/yolov12/issues/74).
+- 等待程序自动操作完毕  
+- Wait for the program to complete the automated operation.
 
-- 2025/03/09: **YOLOv12-turbo** is released: a faster YOLOv12 version.
+### 图片透视变换 Image Perspective Transformation
 
-- 2025/02/24: Blogs: [ultralytics](https://docs.ultralytics.com/models/yolo12/), [LearnOpenCV](https://learnopencv.com/yolov12/). Thanks to them!
+将手机拍摄的PPT转换成矩形图像，然后可以选择自动合成PDF  
+Convert PPTs taken by phone into rectangular images, and optionally combine them into a PDF.
 
-- 2025/02/22: [YOLOv12 TensorRT CPP Inference Repo + Google Colab Notebook](https://github.com/mohamedsamirx/YOLOv12-TensorRT-CPP).
+- 将手机照片放在同一个文件夹内（下文称“目标文件夹”）  
+- Place the phone photos in the same folder (referred to as the "target folder" below).
 
-- 2025/02/22: [Android deploy](https://github.com/mpj1234/ncnn-yolov12-android/tree/main) / [TensorRT-YOLO](https://github.com/laugh12321/TensorRT-YOLO) accelerates yolo12. Thanks to them!
+** 注意路径中不能有中文 **  
+** Note: The path must not contain Chinese characters. **
 
-- 2025/02/21: Try yolo12 for classification, oriented bounding boxes, pose estimation, and instance segmentation at [ultralytics](https://github.com/ultralytics/ultralytics/tree/main/ultralytics/cfg/models/12). Please pay attention to this [issue](https://github.com/sunsmarterjie/yolov12/issues/29). Thanks to them! 
+- 点击左上角“选择目录”，选择目标文件夹  
+- Click "Select Directory" in the top left corner to choose the target folder.
 
-- 2025/02/20: [Any computer or edge device?](https://github.com/roboflow/inference)  / [ONNX CPP Version](https://github.com/mohamedsamirx/YOLOv12-ONNX-CPP). Thanks to them! 
-  
-- 2025/02/20: Train a yolov12 model on a custom dataset: [Blog](https://blog.roboflow.com/train-yolov12-model/) and [Youtube](https://www.youtube.com/watch?v=fksJmIMIfXo). / [Step-by-step instruction](https://youtu.be/dO8k5rgXG0M). Thanks to them! 
+- 点击“照片透视变换”  
+- Click "Photo Perspective Transformation."
 
-- 2025/02/19: [arXiv version](https://arxiv.org/abs/2502.12524) is public. [Demo](https://huggingface.co/spaces/sunsmarterjieleaf/yolov12) is available (try [Demo2](https://huggingface.co/spaces/sunsmarterjieleaf/yolov12_demo2) [Demo3](https://huggingface.co/spaces/sunsmarterjieleaf/yolov12_demo3) if busy).
+- 每个照片会依次显示在界面上，需要手动点击照片中屏幕的四个角（左上、左下、右下、右上，不限点击顺序）  
+- Each photo will be displayed on the interface in sequence. You need to manually click the four corners of the screen in the photo (top left, bottom left, bottom right, top right, in any order).
 
+- 点击完成后会显示变换完成的照片，按ESC键开始下一张照片  
+- After clicking, the transformed photo will be displayed. Press the ESC key to start the next photo.
 
-<details>
-  <summary>
-  <font size="+1">Abstract</font>
-  </summary>
-Enhancing the network architecture of the YOLO framework has been crucial for a long time but has focused on CNN-based improvements despite the proven superiority of attention mechanisms in modeling capabilities. This is because attention-based models cannot match the speed of CNN-based models. This paper proposes an attention-centric YOLO framework, namely YOLOv12, that matches the speed of previous CNN-based ones while harnessing the performance benefits of attention mechanisms.
+- 转换完成的照片会存储在目标文件夹同级目录下，文件夹名称为目标文件夹名称_result  
+- The transformed photos will be stored in a folder at the same level as the target folder, with the folder name being target folder name_result.
 
-YOLOv12 surpasses all popular real-time object detectors in accuracy with competitive speed. For example, YOLOv12-N achieves 40.6% mAP with an inference latency of 1.64 ms on a T4 GPU, outperforming advanced YOLOv10-N / YOLOv11-N by 2.1%/1.2% mAP with a comparable speed. This advantage extends to other model scales. YOLOv12 also surpasses end-to-end real-time detectors that improve DETR, such as RT-DETR / RT-DETRv2: YOLOv12-S beats RT-DETR-R18 / RT-DETRv2-R18 while running 42% faster, using only 36% of the computation and 45% of the parameters.
-</details>
+### 人工智能识别 AI Recognition
 
+自动识别照片中的显示器，并截取出来。  
+Automatically recognize the monitor in the photo and crop it out.
 
-## Main Results
+** 注意：受YOLO12限制，此功能不会将显示器变为矩形，会保留显示器原始拍摄角度。 **  
+** Note: Due to YOLO12 limitations, this feature will not transform the monitor into a rectangle but will retain the original shooting angle of the monitor. **
 
-**Turbo (default version)**:
-| Model                                                                                | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>T4 TensorRT10<br> | params<br><sup>(M) | FLOPs<br><sup>(G) |
-| :----------------------------------------------------------------------------------- | :-------------------: | :-------------------:| :------------------------------:| :-----------------:| :---------------:|
-| [YOLO12n](https://github.com/sunsmarterjie/yolov12/releases/download/turbo/yolov12n.pt) | 640                   | 40.4                 | 1.60                            | 2.5                | 6.0               |
-| [YOLO12s](https://github.com/sunsmarterjie/yolov12/releases/download/turbo/yolov12s.pt) | 640                   | 47.6                 | 2.42                            | 9.1                | 19.4              |
-| [YOLO12m](https://github.com/sunsmarterjie/yolov12/releases/download/turbo/yolov12m.pt) | 640                   | 52.5                 | 4.27                            | 19.6               | 59.8              |
-| [YOLO12l](https://github.com/sunsmarterjie/yolov12/releases/download/turbo/yolov12l.pt) | 640                   | 53.8                 | 5.83                            | 26.5               | 82.4              |
-| [YOLO12x](https://github.com/sunsmarterjie/yolov12/releases/download/turbo/yolov12x.pt) | 640                   | 55.4                 | 10.38                           | 59.3               | 184.6             |
+- 将手机照片放在同一个文件夹内（下文称“目标文件夹”）  
+- Place the phone photos in the same folder (referred to as the "target folder" below).
 
-[**v1.0**](https://github.com/sunsmarterjie/yolov12/tree/V1.0):
-| Model                                                                                | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>T4 TensorRT10<br> | params<br><sup>(M) | FLOPs<br><sup>(G) |
-| :----------------------------------------------------------------------------------- | :-------------------: | :-------------------:| :------------------------------:| :-----------------:| :---------------:|
-| [YOLO12n](https://github.com/sunsmarterjie/yolov12/releases/download/v1.0/yolov12n.pt) | 640                   | 40.6                 | 1.64                            | 2.6                | 6.5               |
-| [YOLO12s](https://github.com/sunsmarterjie/yolov12/releases/download/v1.0/yolov12s.pt) | 640                   | 48.0                 | 2.61                            | 9.3                | 21.4              |
-| [YOLO12m](https://github.com/sunsmarterjie/yolov12/releases/download/v1.0/yolov12m.pt) | 640                   | 52.5                 | 4.86                            | 20.2               | 67.5              |
-| [YOLO12l](https://github.com/sunsmarterjie/yolov12/releases/download/v1.0/yolov12l.pt) | 640                   | 53.7                 | 6.77                            | 26.4               | 88.9              |
-| [YOLO12x](https://github.com/sunsmarterjie/yolov12/releases/download/v1.0/yolov12x.pt) | 640                   | 55.2                 | 11.79                           | 59.1               | 199.0             |
+** 注意路径中不能有中文 **  
+** Note: The path must not contain Chinese characters. **
 
-## Installation
-```
-wget https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.3/flash_attn-2.7.3+cu11torch2.2cxx11abiFALSE-cp311-cp311-linux_x86_64.whl
-conda create -n yolov12 python=3.11
-conda activate yolov12
-pip install -r requirements.txt
-pip install -e .
-```
+- 点击左上角“选择目录”，选择目标文件夹  
+- Click "Select Directory" in the top left corner to choose the target folder.
 
-## Validation
-[`yolov12n`](https://github.com/sunsmarterjie/yolov12/releases/download/turbo/yolov12n.pt)
-[`yolov12s`](https://github.com/sunsmarterjie/yolov12/releases/download/turbo/yolov12s.pt)
-[`yolov12m`](https://github.com/sunsmarterjie/yolov12/releases/download/turbo/yolov12m.pt)
-[`yolov12l`](https://github.com/sunsmarterjie/yolov12/releases/download/turbo/yolov12l.pt)
-[`yolov12x`](https://github.com/sunsmarterjie/yolov12/releases/download/turbo/yolov12x.pt)
+- 点击“人工智能识别”  
+- Click "AI Recognition."
 
-```python
-from ultralytics import YOLO
+- 识别完成的照片会存储在目标文件夹同级目录下，文件夹名称为目标文件夹名称_result  
+- The recognized photos will be stored in a folder at the same level as the target folder, with the folder name being target folder name_result.
 
-model = YOLO('yolov12{n/s/m/l/x}.pt')
-model.val(data='coco.yaml', save_json=True)
-```
+### 图像转PDF Image to PDF
 
-## Training 
-```python
-from ultralytics import YOLO
+将图像和成为PDF文件，会将图片变为1600x900尺寸。  
+Convert images into a PDF file, resizing them to 1600x900 dimensions.
 
-model = YOLO('yolov12n.yaml')
+- 任意执行完“图片透视变换”或“人工智能识别”之后，点击“图像转PDF”  
+- After completing either "Image Perspective Transformation" or "AI Recognition," click "Image to PDF."
 
-# Train the model
-results = model.train(
-  data='coco.yaml',
-  epochs=600, 
-  batch=256, 
-  imgsz=640,
-  scale=0.5,  # S:0.9; M:0.9; L:0.9; X:0.9
-  mosaic=1.0,
-  mixup=0.0,  # S:0.05; M:0.15; L:0.15; X:0.2
-  copy_paste=0.1,  # S:0.15; M:0.4; L:0.5; X:0.6
-  device="0,1,2,3",
-)
+- 等待程序执行完毕即可  
+- Wait for the program to complete the operation.
 
-# Evaluate model performance on the validation set
-metrics = model.val()
+## 其他说明 Additional Notes
 
-# Perform object detection on an image
-results = model("path/to/image.jpg")
-results[0].show()
+### 人工智能识 AI Recognition
 
-```
+人工智能识别基于YOLOv12  
+AI recognition is based on YOLOv12.
 
-## Prediction
-```python
-from ultralytics import YOLO
+## 源代码打包命令 Source Code Packaging Command
 
-model = YOLO('yolov12{n/s/m/l/x}.pt')
-model.predict()
-```
+pyinstaller -D -w -i icon.ico --add-data "README.md;." main.py -n SUPER_IMAGE
 
-## Export
-```python
-from ultralytics import YOLO
+or
 
-model = YOLO('yolov12{n/s/m/l/x}.pt')
-model.export(format="engine", half=True)  # or format="onnx"
-```
-
-
-## Demo
-
-```
-python app.py
-# Please visit http://127.0.0.1:7860
-```
-
-
-## Acknowledgement
-
-The code is based on [ultralytics](https://github.com/ultralytics/ultralytics). Thanks for their excellent work!
-
-## Citation
-
-```BibTeX
-@article{tian2025yolov12,
-  title={YOLOv12: Attention-Centric Real-Time Object Detectors},
-  author={Tian, Yunjie and Ye, Qixiang and Doermann, David},
-  journal={arXiv preprint arXiv:2502.12524},
-  year={2025}
-}
-```
-
+pyinstaller -D -w -i icon.ico --add-data "README.md;." main2.py -n SUPER_IMAGE
