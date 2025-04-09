@@ -16,9 +16,9 @@ def wechat_images_2_pdf():
     # 打印用户输入的内容
     if url and url.startswith('http'):
         folder_name = get_images(url)
-        pdf_path = images_to_pdf(folder_name)
+        images_to_pdf(folder_name)
         time.sleep(2)  # 暂停2s等待文件生成
-        delete_folder(folder_name)
+        # delete_folder(folder_name)
         return url
     else:
         return "文章地址错误"
