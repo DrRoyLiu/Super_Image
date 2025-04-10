@@ -76,12 +76,12 @@ def yolo_recognize():
 
 # 创建主窗口
 root = tk.Tk()
-root.title("功能选择界面")
-root.geometry("800x800")
+root.title("SUPER IMAGE")
+root.geometry("600x800")
 root.resizable(False, False)
 
 # 设置窗口居中
-window_width = 800
+window_width = 600
 window_height = 500
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
@@ -98,42 +98,42 @@ img_trans = image_transform()
 # 创建按钮
 button_get_article = tk.Button(
     root, text="获取微信文章", command=get_article, width=20, height=2, bg="green", fg="white")
-button_get_article.place(x=300, y=10)
+button_get_article.place(x=200, y=10)
 
 button_select_dir = tk.Button(
     root, text="选择目录", command=select_directory, width=20, height=2, bg="blue", fg="white")
-button_select_dir.place(x=300, y=150)
+button_select_dir.place(x=200, y=150)
 
 button_photo_transform = tk.Button(
     root, text="照片透视变换", command=photo_transform, width=20, height=2, bg="saddlebrown", fg="white")
-button_photo_transform.place(x=300, y=200)
+button_photo_transform.place(x=200, y=200)
 
 button_yolo_recognize = tk.Button(
     root, text="人工智能识别", command=yolo_recognize, width=20, height=2, bg="saddlebrown", fg="white")
-button_yolo_recognize.place(x=300, y=250)
+button_yolo_recognize.place(x=200, y=250)
 
 button_pdf_maker = tk.Button(
     root, text="图像转PDF", command=make_pdf, width=20, height=2, bg="saddlebrown", fg="white")
-button_pdf_maker.place(x=300, y=300)
+button_pdf_maker.place(x=200, y=300)
 
 button_status = tk.Button(root, text="YOLO服务器：开", width=20,
                           height=2, bg="silver", fg="white")
-button_status.place(x=300, y=350)
+button_status.place(x=200, y=350)
 
 # 创建文本框和标签
 origin_label = tk.Label(root, text="原始目录：", width=10, height=1)
-origin_label.place(x=70, y=80)
+origin_label.place(x=20, y=80)
 select_text_box = tk.Entry(root, width=60)
-select_text_box.place(x=150, y=80)
+select_text_box.place(x=100, y=80)
 
 select_label = tk.Label(root, text="处理后目录：", width=10, height=1)
-select_label.place(x=70, y=100)
+select_label.place(x=20, y=100)
 text_box = tk.Entry(root, width=60)
-text_box.place(x=150, y=100)
+text_box.place(x=100, y=100)
 
 # 创建警告标签
-warning_label = tk.Label(root, text="请点击选择目录", width=60, height=1, bg="white")
-warning_label.place(x=150, y=450)
+warning_label = tk.Label(root, text="请点击选择目录", width=50, height=1, bg="white")
+warning_label.place(x=100, y=450)
 
 text_box.insert(0, "请点击选择目录")
 select_text_box.insert(0, "请点击选择目录")
