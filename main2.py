@@ -12,7 +12,7 @@ from yolo_client.get_yolo_result import get_yolo_result
 
 # 打开YOLO服务器
 def start_server():
-    thread = threading.Thread(target=server.run_server)
+    thread = threading.Thread(target=server.run_server, daemon=True)
     thread.start()
 
 
@@ -120,9 +120,14 @@ button_status = tk.Button(root, text="YOLO服务器：开", width=20,
                           height=2, bg="silver", fg="white")
 button_status.place(x=300, y=350)
 
-# 创建文本框
+# 创建文本框和标签
+origin_label = tk.Label(root, text="原始目录：", width=10, height=1)
+origin_label.place(x=70, y=80)
 select_text_box = tk.Entry(root, width=60)
 select_text_box.place(x=150, y=80)
+
+select_label = tk.Label(root, text="处理后目录：", width=10, height=1)
+select_label.place(x=70, y=100)
 text_box = tk.Entry(root, width=60)
 text_box.place(x=150, y=100)
 
@@ -135,6 +140,14 @@ select_text_box.insert(0, "请点击选择目录")
 
 # 启动服务器
 start_server()
+
+
+def on_closing():
+    root.quit()
+    root.destroy()
+
+
+root.protocol("WM_DELETE_WINDOW", on_closing)
 
 # 运行主循环
 root.mainloop()
