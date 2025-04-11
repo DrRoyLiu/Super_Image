@@ -52,13 +52,13 @@ def photo_transform():
 
 
 # 图像转PDF
-def make_pdf():
+def make_pdf(resize=False):
     global image_group, output_dir
     if image_group is None:
         warning_label.config(text="请先选择图片目录")
         return
     warning_label.config(text="操作完成前，本界面会卡死")
-    pdf_path = images_to_pdf(output_dir, img_resize=True)
+    pdf_path = images_to_pdf(output_dir, img_resize=resize)
     warning_label.config(text=f"生成成功，保存至：{pdf_path}")
 
 
@@ -112,13 +112,17 @@ button_yolo_recognize = tk.Button(
     root, text="人工智能识别", command=yolo_recognize, width=20, height=2, bg="saddlebrown", fg="white")
 button_yolo_recognize.place(x=200, y=250)
 
+button_pdf_maker_resize = tk.Button(
+    root, text="图像转PDF(resize)", command=lambda: make_pdf(True), width=20, height=2, bg="saddlebrown", fg="white")
+button_pdf_maker_resize.place(x=200, y=300)
+
 button_pdf_maker = tk.Button(
-    root, text="图像转PDF", command=make_pdf, width=20, height=2, bg="saddlebrown", fg="white")
-button_pdf_maker.place(x=200, y=300)
+    root, text="图像转PDF", command=lambda: make_pdf(False), width=20, height=2, bg="saddlebrown", fg="white")
+button_pdf_maker.place(x=200, y=350)
 
 button_status = tk.Button(root, text="YOLO服务器：开", width=20,
                           height=2, bg="silver", fg="white")
-button_status.place(x=200, y=350)
+button_status.place(x=200, y=400)
 
 # 创建文本框和标签
 origin_label = tk.Label(root, text="原始目录：", width=10, height=1)

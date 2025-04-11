@@ -43,7 +43,7 @@ def images_to_pdf(folder_path, target_path=None, img_resize=False):
         img_path = os.path.join(folder_path, img)
         img_obj = Image.open(img_path)
         # 判断图片的宽是否大于等于800，高是否大于等于400
-        if img_obj.width < 800 or img_obj.height < 500:
+        if (img_obj.width < 800 and img_obj.height < 500) or (img_obj.width < 600 and img_obj.height < 1000):
             continue
         if img_resize:
             img_obj = resize(img_obj)
