@@ -12,7 +12,7 @@ from progress_bar.show_progress_bar import show_progress_bar
 def get_images(url):
     if url is None:
         raise ValueError("URL cannot be empty.")
-    custom_user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+    custom_user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument(f'--user-agent={custom_user_agent}')
     # 创建 ChromeDriver 实例并发出请求
